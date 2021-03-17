@@ -1,0 +1,14 @@
+.boardCanvas{
+    background-color: bisque; 
+    border: 1px solid  black;
+    box-shadow: 0 0 1em;
+}
+
+.pb {
+    width: 414px;
+    height: 560px;
+}
+
+i.delete, i.edit  {
+    cursor: pointer;
+}

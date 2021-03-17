@@ -7,60 +7,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./static/style.css">
     <title>Panel cutting</title>
 </head>
 
 <body>
     <div class="container">
-        <h5>Kalkulator paneli</h5>
+        <i class="material-icons medium">view_comfy</i>
+        <i class="material-icons medium">view_comfy</i>
+        <i class="material-icons medium">view_comfy</i>
+        <i class="material-icons medium">view_comfy</i>
+        <h5>Panel saw material usage</h5>
         <div class="row">
-            <div class="col s6">
+            <div class="col s7">
                 <form action="#" id="dataForm">
-                    <p>
-                        <label>
-                            <input id="board_pb" type="radio" name="group1" checked />
-                            <span>Płyta wiórowa 2800x2070</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input id="board_hdf" type="radio" name="group1" />
-                            <span>Płyta HDF 2800x2070</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input id="board_pw1" type="radio" name="group1" />
-                            <span>Sklejka 1525x1525</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input id="board_pw2" type="radio" name="group1" />
-                            <span>Sklejka 2500x1250</span>
-                        </label>
-                    </p>
-                    <div class="input-field col s6">
-                        <input id="panelWidth" type="text" class="validate">
-                        <label for="panelWidth">Szerokość elementu</label>
+                    <div id="boardList"></div>
+                    <div class="input-field col s4">
+                        <input id="panelNr" type="text" class="validate">
+                        <label for="panelWidth">Part Nr.</label>
                     </div>
-                    <div class="input-field col s6">
+                    <div class="input-field col s4">
+                        <input id="panelWidth" type="text" class="validate">
+                        <label for="panelWidth">Width</label>
+                    </div>
+                    <div class="input-field col s4">
                         <input id="panelLength" type="text" class="validate">
-                        <label for="panelWidth">Dugość elementtu</label>
+                        <label for="panelLength">Length</label>
                     </div>
 
                 </form>
-                <a class="waves-effect waves-light btn-small">Przelicz</a>
-            </div>
-            <div class="col s6">
-                <canvas is="boardCanvas" class="boardCanvas pb" ></canvas>
-                    <div id="resultOutput">
+                <div class="input-field col s12">
+                    <a id="btnAdd" class="waves-effect waves-light btn-small">Add</a>
+                    <a id="btnUpdate" class="waves-effect waves-light btn-small">Save</a>
+                </div>
 
-                    </div>
-            </div>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Part Nr.</th>
+                                <th>Material</th>
+                                <th>Dimmensions[mm]</th>
+                                <th>Usage[m<sup>3</sup>]</th>
+                                <th>Cost [PLN]</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="panelList">
+                            <tr id="panel_1">
+                                <td>ZG1212</td>
+                                <td>Partivl board 15</td>
+                                <td>1500x234</td>
+                                <td>0.0023423</td>
+                                <td>0.87</td>
+                                <td>
+                                    <i class="material-icons edit">edit</i>
+                                    <i class="material-icons delete">delete</i>
+                                </td>
+                            </tr>
 
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <div class="col s5">
+                <canvas is="boardCanvas" class="boardCanvas pb"></canvas>
+
+            </div>
         </div>
+
     </div>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
